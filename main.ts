@@ -21,7 +21,6 @@ if (import.meta.main) {
       Deno.exit(-1);
     }
     const pwEsc = escape(password);
-    console.log({ user, password, pwEsc });
     connectionStr = `mongodb://${user}:${pwEsc}@127.0.0.1:27017/${db}`;
   }
   mongoAccess(connectionStr)
