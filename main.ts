@@ -30,13 +30,13 @@ async function mongoAccess(connectionString: string) {
 }
 
 async function mongooseAccess(connectionString: string) {
-  const conn = await mongoose.connect(connectionString, {
+  const db = await mongoose.connect(connectionString, {
     serverSelectionTimeoutMS: 5000,
   });
-  const User = conn.model("User", UserSchema);
-  const user = await User.findOne().exec();
+  const User = db.model("User", UserSchema);
+  const user = await db.model('User').findOne();
   console.log({ user });
-  await conn.disconnect();
+  await db.disconnect();
 }
 
 if (import.meta.main) {
