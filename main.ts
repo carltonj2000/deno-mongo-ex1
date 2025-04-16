@@ -33,10 +33,10 @@ async function mongooseAccess(connectionString: string) {
 if (import.meta.main) {
   let connectionStr = "mongodb://127.0.0.1:27017";
   const { user, password, db } = getUserPwDb();
-  if (Deno.args[0] && Deno.args[0] === "app") {
+  if (Deno.args[1] && Deno.args[1] === "app") {
     connectionStr = `mongodb://${user}:${password}@127.0.0.1:27017/${db}`;
   }
-  if (Deno.args[1] && Deno.args[1] === "mongoose") {
+  if (Deno.args[0] && Deno.args[0] === "mongoose") {
     mongooseAccess(connectionStr)
       .then(() => console.log("mongoose seemed to have worked"))
       .catch((e) => console.error(e));
