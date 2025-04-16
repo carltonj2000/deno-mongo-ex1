@@ -20,6 +20,10 @@ async function mongoAccess(connectionString: string) {
     serverSelectionTimeoutMS: 5000,
   });
   await client.connect();
+  const db = client.db("haslv");
+  const users = db.collection("users");
+  const user = await users.findOne();
+  console.log({ user });
   client.close();
 }
 
