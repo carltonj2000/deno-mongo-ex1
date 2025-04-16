@@ -43,8 +43,10 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-UserSchema.plugin(passportLocalMongoose);
+export default UserSchema;
 
-const User = mongoose.model("User", UserSchema);
+// UserSchema.plugin(passportLocalMongoose);
 
-export default User;
+// const User = mongoose.model("User", UserSchema);
+
+// export default User;
