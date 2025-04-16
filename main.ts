@@ -10,8 +10,8 @@ const getUserPwDb = () => {
     console.error("User, password or db not found in env file.");
     Deno.exit(-1);
   }
-  const password = escape(passwordNoEsc);
-  return { user, password, db };
+  // const password = escape(passwordNoEsc);
+  return { user, password: passwordNoEsc, db };
 };
 
 async function mongoAccess(connectionString: string) {
