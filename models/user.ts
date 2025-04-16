@@ -1,7 +1,7 @@
 import mongoose from "npm:mongoose@^6.7";
 // var passportLocalMongoose = require("passport-local-mongoose");
 
-var UserSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -43,7 +43,7 @@ var UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("User", UserSchema);
 

@@ -2,7 +2,7 @@ import { MongoClient } from "npm:mongodb@6.1.0";
 import { escape } from "node:querystring";
 import mongoose from "npm:mongoose@^6.7";
 
-import UserSchema from "./models/user";
+import User from "./models/user.ts";
 
 const getUserPwDb = () => {
   const user = Deno.env.get("MONGO_USER") || null;
@@ -33,7 +33,6 @@ async function mongooseAccess(connectionString: string) {
   const conn = await mongoose.connect(connectionString, {
     serverSelectionTimeoutMS: 5000,
   });
-  const User = mongoose.model("User", UserSchema);
   const user = await User.findOne();
   console.log({ user });
   await conn.disconnect();
